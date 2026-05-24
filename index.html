@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="./">
+    <title>LuxeGo - Premium Car Rental</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+          <a href="index.html" class="logo">LuxeGo</a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          </div>
+          <div class="theme-toggler">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        </nav>
+      </header>
+
+    <main>
+        <section class="hero" style="background-image: url('assets/images/hero-bg.jpg');">
+            <div class="hero-content">
+                <h1>Experience Luxury on Wheels</h1>
+                <p>Rent the car of your dreams from our exclusive collection.</p>
+                <a href="cars.html" class="btn btn-primary">Explore Cars</a>
+            </div>
+        </section>
+
+        <section class="featured-cars">
+            <h2>Featured Cars</h2>
+            <div class="car-grid">
+            </div>
+        </section>
+
+        <section class="search-section">
+            <h2>Find Your Perfect Car</h2>
+            <form>
+                <input type="text" placeholder="Car Name">
+                <input type="text" placeholder="Model">
+                <button type="submit" class="btn">Search</button>
+            </form>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"The best car rental experience I've ever had. The process was seamless and the car was immaculate."</p>
+                    <h4>- Juhi Mehta</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I rented a car for my wedding and it was the perfect touch. The team at LuxeGo was amazing."</p>
+                    <h4>- Kevin Mendapara</h4>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I'm a regular customer and I'm always impressed with the quality of the cars and the service."</p>
+                    <h4>- Krish Jagani </h4>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <h2>Our Journey in Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>100+</h3>
+                    <p>Luxury Cars</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5000+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Years of Experience</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2>Ready to Drive in Style?</h2>
+            <p>Book your luxury car today and enjoy an unforgettable experience.</p>
+            <a href="booking.html" class="btn btn-primary">Book Now</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+        <ul>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+        </ul>
+    </footer>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>

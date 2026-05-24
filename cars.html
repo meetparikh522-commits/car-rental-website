@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeGo - Cars</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/cars.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <div id="loader">
+      <div class="spinner"></div>
+  </div>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">LuxeGo</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="booking.html">Booking</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <div class="theme-toggler">
+        <i class="fas fa-sun"></i>
+      </div>
+      <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </nav>
+  </header>
+
+  <main class="cars-page">
+    <div class="container">
+      <aside class="filters">
+        <div class="filter-group">
+          <h3>Search</h3>
+          <input type="text" id="search" placeholder="Search for a car...">
+        </div>
+        <div class="filter-group">
+          <h3>Price</h3>
+          <input type="range" id="price-range" min="30" max="2000">
+          <span id="price-value">₹2,000</span>
+        </div>
+        <div class="filter-group">
+          <h3>Brand</h3>
+          <select id="brand-filter">
+            <option value="">All</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <h3>Fuel</h3>
+          <select id="fuel-filter">
+            <option value="">All</option>
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Electric">Electric</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <h3>Seats</h3>
+          <select id="seats-filter">
+            <option value="">All</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <h3>Transmission</h3>
+          <select id="transmission-filter">
+            <option value="">All</option>
+            <option value="Automatic">Automatic</option>
+            <option value="Manual">Manual</option>
+          </select>
+        </div>
+      </aside>
+      <section class="cars-list">
+        <div class="list-header">
+          <h2>Our Cars</h2>
+          <div class="sorting">
+            <label for="sort-by">Sort by:</label>
+            <select id="sort-by">
+              <option value="price-asc">Price (Low to High)</option>
+              <option value="price-desc">Price (High to Low)</option>
+              <option value="name-asc">Name (A to Z)</option>
+              <option value="name-desc">Name (Z to A)</option>
+            </select>
+          </div>
+        </div>
+        <div id="car-grid" class="car-grid"></div>
+        <div class="pagination">
+          <button id="prev-page">Previous</button>
+          <span id="page-info"></span>
+          <button id="next-page">Next</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Embedded car data to support local file usage (fallback for fetch) -->
+  <script id="cars-data" type="application/json">
+    [
+      {
+        "id": 1,
+        "name": "Maruti Suzuki Swift",
+        "brand": "Maruti Suzuki",
+        "price": 4000,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Manual",
+        "image": "assets/images/maruti-suzuki-swift.jpg",
+        "colors": ["#ffffff", "#ff0000", "#000000"],
+        "description": "Budget-friendly hatchback perfect for daily commute and city driving."
+      },
+      {
+        "id": 2,
+        "name": "Hyundai i20",
+        "brand": "Hyundai",
+        "price": 3500,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Manual",
+        "image": "assets/images/hyundai-i20.jpg",
+        "description": "Affordable hatchback with modern features and good fuel efficiency."
+      },
+      {
+        "id": 3,
+        "name": "Tata Nexon",
+        "brand": "Tata",
+        "price": 5000,
+        "fuel": "Diesel",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/tata-nexon.jpg",
+        "colors": ["#000000", "#ffffff", "#ff6b00"],
+        "description": "Compact SUV with excellent safety features and spacious interior."
+      },
+      {
+        "id": 4,
+        "name": "Mahindra XUV500",
+        "brand": "Mahindra",
+        "price": 9500,
+        "fuel": "Diesel",
+        "seats": 7,
+        "transmission": "Automatic",
+        "image": "assets/images/mahindra-xuv500.jpg",
+        "colors": ["#1a1a1a", "#ffffff", "#0066cc"],
+        "description": "Premium SUV with 3-row seating and advanced features for families."
+      },
+      {
+        "id": 5,
+        "name": "Honda City",
+        "brand": "Honda",
+        "price": 6500,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/honda-city.jpg",
+        "colors": ["#1a1a1a", "#ffffff", "#6b0000"],
+        "description": "Popular sedan with excellent reliability and smooth driving experience."
+      },
+      {
+        "id": 6,
+        "name": "BMW 3 Series",
+        "brand": "BMW",
+        "price": 25000,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/bmw-3-series.jpg",
+        "colors": ["#000000", "#ffffff", "#c0c0c0"],
+        "description": "Luxury sedan with premium comfort and performance driving."
+      },
+      {
+        "id": 7,
+        "name": "Audi A4",
+        "brand": "Audi",
+        "price": 28000,
+        "fuel": "Diesel",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/audi-a4.jpg",
+        "colors": ["#000000", "#ffffff", "#505050"],
+        "description": "German engineering at its finest with sophisticated design."
+      },
+      {
+        "id": 8,
+        "name": "Mercedes-Benz C-Class",
+        "brand": "Mercedes-Benz",
+        "price": 32000,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/mercedes-benz-c-class.jpg",
+        "colors": ["#000000", "#ffffff", "#c0c0c0"],
+        "description": "Iconic luxury sedan representing elegance and performance."
+      },
+      {
+        "id": 9,
+        "name": "Porsche 911",
+        "brand": "Porsche",
+        "price": 85000,
+        "fuel": "Petrol",
+        "seats": 4,
+        "transmission": "Automatic",
+        "image": "assets/images/porsche-911.jpg",
+        "colors": ["#000000", "#ffffff", "#ffcc00", "#c8102e"],
+        "description": "Legendary sports car with incredible performance and precision handling."
+      },
+      {
+        "id": 10,
+        "name": "Ford Mustang",
+        "brand": "Ford",
+        "price": 45000,
+        "fuel": "Petrol",
+        "seats": 4,
+        "transmission": "Manual",
+        "image": "assets/images/ford-mustang.jpg",
+        "colors": ["#000000", "#ff0000", "#ffd700", "#2e8b57"],
+        "description": "Iconic American muscle car with powerful engine and thrilling drive."
+      },
+      {
+        "id": 11,
+        "name": "Chevrolet Camaro",
+        "brand": "Chevrolet",
+        "price": 52000,
+        "fuel": "Petrol",
+        "seats": 4,
+        "transmission": "Manual",
+        "image": "assets/images/chevrolet-camaro.jpg",
+        "colors": ["#000000", "#ffffff", "#ff8c00", "#800080"],
+        "description": "High-performance coupe with aggressive styling and powerful acceleration."
+      },
+      {
+        "id": 12,
+        "name": "Land Rover Range Rover",
+        "brand": "Land Rover",
+        "price": 22000,
+        "fuel": "Diesel",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/land-rover-range-rover.jpg",
+        "colors": ["#000000", "#ffffff", "#4682b4", "#556b2f"],
+        "description": "Premium SUV with exceptional off-road capability and luxury interior."
+      },
+      {
+        "id": 13,
+        "name": "Lexus LC 500",
+        "brand": "Lexus",
+        "price": 65000,
+        "fuel": "Petrol",
+        "seats": 4,
+        "transmission": "Automatic",
+        "image": "assets/images/lexus-lc-500.jpg",
+        "colors": ["#000000", "#ffffff", "#b22222", "#4169e1"],
+        "description": "Japanese luxury coupe with silky-smooth engine and cutting-edge technology."
+      },
+      {
+        "id": 14,
+        "name": "Jaguar F-Type",
+        "brand": "Jaguar",
+        "price": 52000,
+        "fuel": "Petrol",
+        "seats": 2,
+        "transmission": "Automatic",
+        "image": "assets/images/jaguar-f-type.jpg",
+        "colors": ["#000000", "#d4af37", "#006400", "#8b0000"],
+        "description": "British sports car combining sleek design with exhilarating performance."
+      },
+      {
+        "id": 15,
+        "name": "Maserati Ghibli",
+        "brand": "Maserati",
+        "price": 72000,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/maserati-ghibli.jpg",
+        "colors": ["#000000", "#ffffff", "#ff4500", "#2f4f4f"],
+        "description": "Italian luxury sedan with unmistakable styling and powerful presence."
+      },
+      {
+        "id": 16,
+        "name": "Ferrari 488",
+        "brand": "Ferrari",
+        "price": 150000,
+        "fuel": "Petrol",
+        "seats": 2,
+        "transmission": "Automatic",
+        "image": "assets/images/ferrari-488.jpg",
+        "colors": ["#000000", "#ff0000", "#ffd700", "#8b0000"],
+        "description": "High-performance Italian supercar with stunning speed and precision."
+      },
+      {
+        "id": 17,
+        "name": "Rolls Royce Phantom",
+        "brand": "Rolls Royce",
+        "price": 120000,
+        "fuel": "Petrol",
+        "seats": 5,
+        "transmission": "Automatic",
+        "image": "assets/images/rolls-royce-phantom.jpg",
+        "colors": ["#000000", "#ffffff", "#c0c0c0"],
+        "description": "Ultimate luxury vehicle for the most discerning clientele."
+      },
+      {
+        "id": 18,
+        "name": "Lamborghini Aventador",
+        "brand": "Lamborghini",
+        "price": 140000,
+        "fuel": "Petrol",
+        "seats": 2,
+        "transmission": "Automatic",
+        "image": "assets/images/lamborghini-aventador.jpg",
+        "colors": ["#ffff00", "#ff8c00", "#000000"],
+        "description": "Stunning hypercar with aggressive styling and incredible acceleration."
+      },
+      {
+        "id": 19,
+        "name": "Bentley Continental GT",
+        "brand": "Bentley",
+        "price": 98000,
+        "fuel": "Petrol",
+        "seats": 4,
+        "transmission": "Automatic",
+        "image": "assets/images/bentley-continental-gt.jpg",
+        "colors": ["#000000", "#ffffff", "#8b4513"],
+        "description": "Grand touring coupe blending luxury with exhilarating performance."
+      },
+      {
+        "id": 20,
+        "name": "Bugatti Chiron",
+        "brand": "Bugatti",
+        "price": 180000,
+        "fuel": "Petrol",
+        "seats": 2,
+        "transmission": "Automatic",
+        "image": "assets/images/bugatti-chiron.jpg",
+        "colors": ["#000000", "#0066ff", "#ff0000"],
+        "description": "One of the fastest production cars with unmatched speed and power."
+      }
+    ]
+  </script>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/cars.js"></script>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>

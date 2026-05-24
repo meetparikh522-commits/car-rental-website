@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeGo - Book Your Car</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">LuxeGo</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="wishlist.html">Wishlist</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <!-- Auth buttons will be dynamically added here -->
+            </div>
+            <div class="theme-toggler">
+                <i class="fas fa-sun"></i>
+            </div>
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="booking-page">
+        <div class="booking-container">
+            <h1>Complete Your Booking</h1>
+            <div class="booking-progress">
+                <div class="progress-step active" data-step="1"><span>1</span><p>Details</p></div>
+                <div class="progress-step" data-step="2"><span>2</span><p>Payment</p></div>
+                <div class="progress-step" data-step="3"><span>3</span><p>Confirmation</p></div>
+            </div>
+
+            <form id="booking-form">
+                <!-- Step 1: Booking Details -->
+                <div class="form-step active" id="step-1">
+                    <div class="car-details-summary">
+                        <h2>Your Selected Car</h2>
+                        <div id="car-details-content">
+                            <!-- Car details will be loaded here by booking.js -->
+                            <p>Loading car details...</p>
+                        </div>
+                    </div>
+
+                    <div class="rental-details">
+                        <h2>Rental Details</h2>
+                        <div class="form-group-grid">
+                            <div class="form-group">
+                                <label for="pickup-location">Pickup Location</label>
+                                <input type="text" id="pickup-location" placeholder="e.g., Airport, City Center" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dropoff-location">Drop-off Location</label>
+                                <input type="text" id="dropoff-location" placeholder="e.g., Airport, City Center" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickup-date">Pickup Date</label>
+                                <input type="date" id="pickup-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pickup-time">Pickup Time</label>
+                                <input type="time" id="pickup-time" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dropoff-date">Drop-off Date</label>
+                                <input type="date" id="dropoff-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dropoff-time">Drop-off Time</label>
+                                <input type="time" id="dropoff-time" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="insurance-section">
+                        <h2>Select Insurance</h2>
+                        <div class="insurance-options">
+                            <label class="insurance-card">
+                                <input type="radio" name="insurance" value="basic" checked>
+                                <div class="insurance-details">
+                                    <h3>Basic Coverage</h3>
+                                    <p>Covers major damages</p>
+                                    <span class="price">+₹20/day</span>
+                                </div>
+                            </label>
+                            <label class="insurance-card">
+                                <input type="radio" name="insurance" value="premium">
+                                <div class="insurance-details">
+                                    <h3>Premium Coverage</h3>
+                                    <p>Covers major + minor damages</p>
+                                    <span class="price">+₹35/day</span>
+                                </div>
+                            </label>
+                            <label class="insurance-card">
+                                <input type="radio" name="insurance" value="full">
+                                <div class="insurance-details">
+                                    <h3>Full Coverage</h3>
+                                    <p>Complete protection + roadside assist</p>
+                                    <span class="price">+₹50/day</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="addons-section">
+                        <h2>Add Optional Services</h2>
+                        <div class="addon-options">
+                            <label><input type="checkbox" value="gps"> GPS Navigator (+₹5/day)</label>
+                            <label><input type="checkbox" value="child-seat"> Child Seat (+₹10/day)</label>
+                            <label><input type="checkbox" value="extra-driver"> Extra Driver (+₹15/day)</label>
+                            <label><input type="checkbox" value="wifi"> WiFi Hotspot (+₹3/day)</label>
+                        </div>
+                    </div>
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn btn-primary next-step">Next: Payment</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Payment -->
+                <div class="form-step" id="step-2">
+                    <div class="price-summary">
+                        <h2>Price Calculation</h2>
+                        <div id="price-breakdown">
+                            <!-- Price details will be loaded here -->
+                        </div>
+                        <div class="coupon-section">
+                            <input type="text" id="coupon-code" placeholder="Enter Coupon Code">
+                            <button type="button" id="apply-coupon" class="btn">Apply</button>
+                        </div>
+                        <h3 id="total-price">Total: ₹0</h3>
+                    </div>
+
+                    <div class="payment-method">
+                        <h2>Choose Payment Method</h2>
+                        <div class="payment-options">
+                            <label><input type="radio" name="payment" value="upi" checked> Demo UPI</label>
+                            <label><input type="radio" name="payment" value="card"> Demo Card</label>
+                            <label><input type="radio" name="payment" value="wallet"> Demo Wallet</label>
+                            <label><input type="radio" name="payment" value="cash"> Cash on Pickup</label>
+                        </div>
+                    </div>
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn prev-step">Back</button>
+                        <button type="button" id="proceed-to-payment" class="btn btn-primary">Confirm Booking</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/booking.js"></script>
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeGo - User Dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+          <a href="index.html" class="logo">LuxeGo</a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          </div>
+          <div class="theme-toggler">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        </nav>
+      </header>
+
+    <main class="dashboard-page">
+        <div class="dashboard-container">
+            <aside class="dashboard-sidebar">
+                <div class="user-profile">
+                    <img src="assets/images/user-placeholder.jpg" alt="User Avatar" class="avatar">
+                    <h3 id="user-name-display">Guest</h3>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#profile" class="sidebar-link active" data-target="profile"><i class="fas fa-user"></i><span>My Profile</span></a></li>
+                    <li><a href="#booking-history" class="sidebar-link" data-target="booking-history"><i class="fas fa-history"></i><span>Booking History</span></a></li>
+                    <li><a href="#wishlist" class="sidebar-link" data-target="wishlist"><i class="fas fa-heart"></i><span>My Wishlist</span></a></li>
+                    <li><a href="#notifications" class="sidebar-link" data-target="notifications"><i class="fas fa-bell"></i><span>Notifications</span></a></li>
+                    <li><a href="#reviews" class="sidebar-link" data-target="reviews"><i class="fas fa-star"></i><span>My Reviews</span></a></li>
+                    <li><a href="#loyalty" class="sidebar-link" data-target="loyalty"><i class="fas fa-gift"></i><span>Loyalty Points</span></a></li>
+                    <li><a href="#payments" class="sidebar-link" data-target="payments"><i class="fas fa-credit-card"></i><span>Payment History</span></a></li>
+                    <li><a href="#addresses" class="sidebar-link" data-target="addresses"><i class="fas fa-map-marker-alt"></i><span>Saved Addresses</span></a></li>
+                </ul>
+            </aside>
+            <section class="dashboard-main">
+                <div id="profile" class="dashboard-content active">
+                    <h2>My Profile</h2>
+                    <div class="profile-details">
+                        <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                        <button id="edit-profile-btn" class="btn">Edit Profile</button>
+                    </div>
+                </div>
+                <div id="booking-history" class="dashboard-content">
+                    <h2>Booking History</h2>
+                    <div id="booking-history-list" class="booking-list"></div>
+                </div>
+                <div id="wishlist" class="dashboard-content">
+                    <h2>My Wishlist</h2>
+                    <div id="wishlist-items" class="car-grid"></div>
+                </div>
+                <div id="notifications" class="dashboard-content">
+                    <h2>Notifications</h2>
+                    <ul id="notifications-list"></ul>
+                </div>
+                <div id="reviews" class="dashboard-content">
+                    <h2>My Reviews</h2>
+                    <div id="reviews-list"></div>
+                </div>
+                <div id="loyalty" class="dashboard-content">
+                    <h2>Loyalty Program</h2>
+                    <div class="loyalty-card">
+                        <div class="points-display">
+                            <h3>Your Points</h3>
+                            <p class="points-number" id="loyalty-points">0</p>
+                        </div>
+                        <div class="points-info">
+                            <p>🎁 Earn 1 point per ₹10 spent</p>
+                            <p>⭐ Redeem points for discounts</p>
+                            <p>🏆 VIP status at 500+ points</p>
+                        </div>
+                    </div>
+                    <div id="loyalty-history" class="loyalty-history"></div>
+                </div>
+                <div id="payments" class="dashboard-content">
+                    <h2>Payment History</h2>
+                    <div id="payments-list"></div>
+                </div>
+                <div id="addresses" class="dashboard-content">
+                    <h2>Saved Addresses</h2>
+                    <button id="add-address-btn" class="btn btn-primary">+ Add New Address</button>
+                    <div id="addresses-list" class="addresses-list"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/payment.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
