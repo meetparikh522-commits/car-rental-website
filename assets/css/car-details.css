@@ -1,0 +1,136 @@
+.car-details-page {
+  padding: 40px 20px 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.car-details-page .container {
+  display: flex;
+  gap: 40px;
+  margin-top: 0;
+}
+
+.gallery-section {
+  width: 60%;
+}
+
+.main-image img {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--secondary-color);
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.thumbnail-images img {
+  width: 100px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: opacity 0.3s, border-color 0.3s;
+}
+
+.thumbnail-images img:hover {
+  opacity: 0.8;
+}
+
+.thumbnail-images img.active {
+  border-color: var(--text-color);
+  box-shadow: var(--shadow-hover);
+}
+
+.details-section {
+  width: 40%;
+}
+
+.details-section h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.02em;
+}
+
+.details-section .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 24px;
+}
+
+.details-section .specs {
+  margin-bottom: 30px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 0;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.spec-item {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.spec-item strong {
+  color: var(--text-color);
+  margin-left: 4px;
+}
+
+.viewer-placeholder {
+  margin-top: 30px;
+  padding: 30px;
+  border: 1px dashed var(--border-color);
+  background-color: var(--secondary-color);
+  text-align: center;
+  border-radius: 8px;
+  color: var(--text-muted);
+}
+
+.reviews-section, .similar-cars-section {
+  margin-top: 60px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 40px;
+}
+
+.reviews-section h2, .similar-cars-section h2 {
+  font-size: 1.8rem;
+  margin: 0 0 24px 0;
+}
+
+.reviews-list .review {
+  border-bottom: 1px solid var(--border-color);
+  padding: 24px 0;
+}
+
+.reviews-list .review:last-child {
+  border-bottom: none;
+}
+
+.similar-cars-section .car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+@media (max-width: 900px) {
+  .car-details-page .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .gallery-section, .details-section {
+    width: 100%;
+  }
+}

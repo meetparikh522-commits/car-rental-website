@@ -1,0 +1,269 @@
+/* ==========================================================================
+   LuxeGo - Premium & Elegant Authentication Styling
+   ========================================================================== */
+
+.login-page, .signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 85vh;
+    padding: 60px 20px;
+    background: radial-gradient(circle at 50% 50%, var(--secondary-color) 0%, var(--background-color) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Stunning Glassmorphic Cards */
+.login-container, .signup-container {
+    width: 100%;
+    max-width: 440px;
+    padding: 40px 36px;
+    background-color: var(--card-background);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.login-container:hover, .signup-container:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08), var(--shadow-hover);
+}
+
+.login-container h2, .signup-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    color: var(--text-color);
+    letter-spacing: -0.03em;
+}
+
+.login-container p.subtitle, .signup-container p.subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0 0 32px 0;
+}
+
+/* Modern Form Fields */
+.form-group {
+    margin-bottom: 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 400;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.01);
+}
+
+/* Sleek Active Focus Ring */
+.form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.15);
+}
+
+[data-theme="dark"] .form-group input:focus {
+    box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.25);
+}
+
+/* Password Eye Button Wrapper */
+.password-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-input-wrapper input {
+    padding-right: 48px !important; /* Room for the eye toggle */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    transition: color 0.25s, transform 0.2s;
+    z-index: 10;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: var(--text-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Real-Time Checklist Accordion sliding open */
+.password-requirements {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 4px;
+    margin-top: 4px;
+}
+
+.password-requirements.visible {
+    max-height: 250px;
+    opacity: 1;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateX(0);
+}
+
+.requirement i {
+    font-size: 0.9rem;
+    width: 16px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* Requirement Satisfied state */
+.requirement.met {
+    color: #10b981;
+    font-weight: 500;
+}
+
+.requirement.met i {
+    color: #10b981;
+    transform: scale(1.15);
+    animation: popCheck 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Requirement Unmet state */
+.requirement.unmet {
+    color: var(--text-muted);
+}
+
+/* Validation Border States */
+.form-group.success input {
+    border-color: #10b981;
+}
+
+.form-group.error input {
+    border-color: #ef4444;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.82rem;
+    font-weight: 500;
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    animation: slideInTiny 0.3s ease;
+}
+
+/* Simple Button Enhancements */
+.login-container button[type="submit"], .signup-container button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: transform 0.2s, background-color 0.25s, box-shadow 0.25s;
+}
+
+.login-container button[type="submit"]:active, .signup-container button[type="submit"]:active {
+    transform: scale(0.985);
+}
+
+.login-container p, .signup-container p {
+    margin-top: 28px;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.login-container a, .signup-container a {
+    color: var(--text-color);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1.5px solid transparent;
+    transition: all 0.2s ease;
+    padding-bottom: 1px;
+}
+
+.login-container a:hover, .signup-container a:hover {
+    color: var(--text-muted);
+    border-color: var(--text-muted);
+}
+
+/* Micro-Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popCheck {
+    0% { transform: scale(0.5); }
+    100% { transform: scale(1.15); }
+}
+
+@keyframes slideInTiny {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Scaling */
+@media (max-width: 480px) {
+    .login-container, .signup-container {
+        padding: 32px 24px;
+    }
+    .login-container h2, .signup-container h2 {
+        font-size: 1.7rem;
+    }
+}
