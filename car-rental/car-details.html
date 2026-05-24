@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeGo - Car Details</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/car-details.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">LuxeGo</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="booking.html">Booking</a></li>
+      </ul>
+      <div class="auth-buttons">
+        <a href="login.html" class="btn">Login</a>
+        <a href="signup.html" class="btn btn-primary">Sign Up</a>
+      </div>
+      <div class="theme-toggler">
+        <i class="fas fa-sun"></i>
+      </div>
+    </nav>
+  </header>
+
+  <main class="car-details-page">
+    <div class="container">
+      <div class="gallery-section">
+        <div class="main-image">
+          <img src="" alt="Main car image" id="main-car-image">
+        </div>
+        <div class="thumbnail-images" id="thumbnail-images">
+        </div>
+      </div>
+      <div class="details-section">
+        <h1 id="car-name"></h1>
+        <p class="price" id="car-price"></p>
+        <p class="availability" id="car-availability"></p>
+        <a href="#" id="book-now-btn" class="btn btn-primary">Book Now</a>
+
+        <div class="specifications">
+          <h2>Specifications</h2>
+          <ul id="spec-list"></ul>
+        </div>
+
+        <div class="viewer-placeholder">
+          <h2>360&deg; View</h2>
+          <p>360&deg; viewer will be available soon.</p>
+        </div>
+      </div>
+    </div>
+    <div class="container reviews-section">
+      <h2>Reviews</h2>
+      <div id="reviews-list"></div>
+    </div>
+    <div class="container similar-cars-section">
+      <h2>Similar Cars</h2>
+      <div id="similar-cars-grid" class="car-grid"></div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/car-details.js"></script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+.dashboard-page {
+    padding: 40px 20px 80px 20px;
+    background-color: var(--background-color);
+    min-height: 80vh;
+}
+
+.dashboard-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.dashboard-sidebar {
+    width: 260px;
+    background: var(--secondary-color);
+    padding: 30px 20px;
+    border-right: 1px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.user-profile {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+.user-profile .avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 2px solid var(--border-color);
+}
+
+.user-profile h3 {
+    color: var(--text-color);
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    color: var(--nav-link-color);
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+}
+
+.sidebar-menu li a.active, .sidebar-menu li a:hover {
+    background: var(--primary-color);
+    color: var(--background-color);
+}
+
+.sidebar-menu li a i {
+    margin-right: 12px;
+    width: 18px;
+    text-align: center;
+}
+
+.dashboard-main {
+    flex: 1;
+    padding: 30px;
+}
+
+.dashboard-content {
+    display: none;
+}
+
+.dashboard-content.active {
+    display: block;
+}
+
+.dashboard-content h2 {
+    font-size: 1.8rem;
+    margin: 0 0 24px 0;
+    color: var(--text-color);
+    font-weight: 700;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.profile-details p {
+    font-size: 1.05rem;
+    margin: 0 0 16px 0;
+    color: var(--text-color);
+}
+
+.profile-details p strong {
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-right: 8px;
+}
+
+.booking-list .booking-item {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    margin-bottom: 16px;
+    background-color: var(--secondary-color);
+}
+
+.booking-item h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.booking-item p {
+    margin: 0 0 8px 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.booking-item .status {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.booking-item .status.success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.booking-item .status.pending {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.booking-item .status.failed {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+#notifications-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#notifications-list li {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+#notifications-list li:last-child {
+    border-bottom: none;
+}
+
+#reviews-list .review {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#reviews-list .review:last-child {
+    border-bottom: none;
+}
+
+#reviews-list .review h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+}
+
+#reviews-list .review p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .dashboard-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        box-sizing: border-box;
+    }
+}

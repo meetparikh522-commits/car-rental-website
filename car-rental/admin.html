@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeGo - Admin Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/auth.css">
+    <link rel="stylesheet" href="./assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+          <a href="./index.html" class="logo">LuxeGo</a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          </div>
+          <div class="theme-toggler">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        </nav>
+      </header>
+
+    <main class="admin-page admin-auth-mode">
+        <!-- Admin Authentication Portal -->
+        <div class="login-container admin-login-card" id="admin-login-card">
+            <h2>Admin Portal</h2>
+            <p class="subtitle">Authenticate to access administration dashboard</p>
+            <form id="admin-login-form">
+                <div class="form-group">
+                    <label for="admin-email">Email or Username</label>
+                    <input type="text" id="admin-email" placeholder="admin@luxego.com" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Password</label>
+                    <div class="password-input-wrapper">
+                        <input type="password" id="admin-password" placeholder="••••••••" required>
+                        <i class="fas fa-eye-slash toggle-password" data-target-id="admin-password"></i>
+                    </div>
+                    <div class="error-message"></div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Access Panel</button>
+            </form>
+        </div>
+
+        <div class="admin-container" id="admin-dashboard-container" style="display: none;">
+            <aside class="admin-sidebar">
+                <div class="admin-profile">
+                    <img src="assets/images/user-placeholder.jpg" alt="Admin Avatar" class="avatar">
+                    <h3>Admin</h3>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#dashboard" class="sidebar-link active" data-target="dashboard"><i class="fas fa-chart-line"></i><span>Dashboard</span></a></li>
+                    <li><a href="#manage-cars" class="sidebar-link" data-target="manage-cars"><i class="fas fa-car"></i><span>Manage Cars</span></a></li>
+                    <li><a href="#manage-bookings" class="sidebar-link" data-target="manage-bookings"><i class="fas fa-tasks"></i><span>Manage Bookings</span></a></li>
+                    <li><a href="#manage-users" class="sidebar-link" data-target="manage-users"><i class="fas fa-users"></i><span>Manage Users</span></a></li>
+                    <li><a href="#" id="admin-logout-btn" class="sidebar-link"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a></li>
+                </ul>
+            </aside>
+            <section class="admin-main">
+                <div id="dashboard" class="admin-content active">
+                    <h2>Dashboard</h2>
+                    <div class="analytics-grid">
+                        <div class="analytic-card">
+                            <i class="fas fa-car"></i>
+                            <div>
+                                <h3>Total Cars</h3>
+                                <p id="total-cars">0</p>
+                            </div>
+                        </div>
+                        <div class="analytic-card">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h3>Total Users</h3>
+                                <p id="total-users">0</p>
+                            </div>
+                        </div>
+                        <div class="analytic-card">
+                            <i class="fas fa-rupee-sign"></i>
+                            <div>
+                                <h3>Total Revenue</h3>
+                                <p id="total-revenue">₹0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="revenue-chart"></canvas>
+                    </div>
+                </div>
+                <div id="manage-cars" class="admin-content">
+                    <h2>Manage Cars</h2>
+                    <div class="admin-actions-bar" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                        <button id="add-car-btn" class="btn btn-primary">Add Car</button>
+                        <button id="sync-cars-btn" class="btn btn-secondary" style="background: var(--primary-color); color: #000; font-weight: 600;"><i class="fas fa-sync"></i> Sync with CARAPI</button>
+                        <button id="refresh-inventory-btn" class="btn" style="border: 1px solid var(--primary-color); color: var(--primary-color);"><i class="fas fa-redo"></i> Refresh Inventory</button>
+                    </div>
+                    <div id="car-list"></div>
+                </div>
+                <div id="manage-bookings" class="admin-content">
+                    <h2>Manage Bookings</h2>
+                    <div id="booking-list"></div>
+                </div>
+                <div id="manage-users" class="admin-content">
+                    <h2>Manage Users</h2>
+                    <div id="user-list"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+            <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

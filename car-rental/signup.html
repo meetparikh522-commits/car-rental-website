@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="./">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeGo - Sign Up</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+    <header>
+        <nav class="navbar">
+          <a href="index.html" class="logo">LuxeGo</a>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cars.html">Cars</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="wishlist.html">Wishlist</a></li>
+            <li><a href="booking.html">Booking</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="admin.html">Admin</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="signup.html" class="btn btn-primary">Sign Up</a>
+          </div>
+          <div class="theme-toggler">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+        </nav>
+      </header>
+
+    <main>
+        <section class="signup-page">
+            <div class="signup-container">
+                <h2>Create Account</h2>
+                <p class="subtitle">Join LuxeGo and start renting luxury cars today</p>
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-name">Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email">Email Address</label>
+                        <input type="email" id="signup-email" placeholder="name@example.com" required>
+                        <div class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="signup-password" placeholder="Create a strong password" required>
+                            <i class="fas fa-eye-slash toggle-password" data-target-id="signup-password"></i>
+                        </div>
+                        <div class="error-message"></div>
+                        <div class="password-requirements" id="password-reqs">
+                            <div class="requirement" data-req="length"><i class="far fa-circle"></i> At least 8 characters</div>
+                            <div class="requirement" data-req="uppercase"><i class="far fa-circle"></i> One uppercase letter (A-Z)</div>
+                            <div class="requirement" data-req="lowercase"><i class="far fa-circle"></i> One lowercase letter (a-z)</div>
+                            <div class="requirement" data-req="number"><i class="far fa-circle"></i> One number (0-9)</div>
+                            <div class="requirement" data-req="special"><i class="far fa-circle"></i> One special character (@$!%*?&)</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                            <i class="fas fa-eye-slash toggle-password" data-target-id="confirm-password"></i>
+                        </div>
+                        <div class="error-message"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+                <p>Already have an account? <a href="login.html">Login here</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 LuxeGo. All rights reserved.</p>
+            <ul>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
